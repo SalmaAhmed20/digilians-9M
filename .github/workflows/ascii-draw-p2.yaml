@@ -6,6 +6,8 @@ jobs:
         steps:
             - name: Checkout the repo
               uses: actions/checkout@v6
+            - name: install cowsay utility 
+              run: sudo apt-get install cowsay -y
             - name: Run cowsay
               run: cowsay –f dragon “run for cover.. Iam a dragon” > dragon.txt
             - name: Print file 
