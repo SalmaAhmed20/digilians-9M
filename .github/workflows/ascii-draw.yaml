@@ -11,3 +11,5 @@ jobs:
                echo Hello world
                ls 
                cat README.md
+            - name: Run test script
+              run: ./testing-script.sh
