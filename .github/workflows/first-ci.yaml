@@ -5,5 +5,8 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: welcome message
-              run: echo Hello world #cli 
-       
+              run: echo Hello world
+            - name: list files
+              run: ls 
+            - name: Read Content of readme
+              run: cat README.md
