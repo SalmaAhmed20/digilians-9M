@@ -1,0 +1,12 @@
+name: ascii drawing -onpush
+on: push
+jobs:
+    dummy-job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout the repo
+              uses: actions/checkout@v6
+            - name: Run cowsay
+              run: cowsay –f dragon “run for cover.. Iam a dragon” > dragon.txt
+            - name: Print file 
+              run: cat dragon.txt
