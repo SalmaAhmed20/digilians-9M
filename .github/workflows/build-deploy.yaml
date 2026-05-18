@@ -1,0 +1,22 @@
+name: Build and Deploy
+on: push
+jobs:
+    Build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout the repo
+              uses: actions/checkout@v6
+            - name: ECHO MY BUILD
+              run: echo mybuild
+            - name: add files
+              run: |
+               echo "hello team" > buildfile
+    Deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: ECHO MY BUILD
+              run: |
+               echo my deploy 
+               ls
+               cat buildfile
+
