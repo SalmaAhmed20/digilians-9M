@@ -1,7 +1,7 @@
 name: Docker CI
 on: workflow_dispatch
 env:
-    DOCKER_USERNAME: salma22
+    DOCKER_USERNAME: ${{ vars.DOCKER_USERNAME }}
 jobs:
     Build-docker:
         runs-on: ubuntu-latest

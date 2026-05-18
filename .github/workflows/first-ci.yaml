@@ -11,4 +11,4 @@ jobs:
             - name: list files
               run: ls 
             - name: Read Content of readme
-              run: cat README.md
+              run: echo ${{ vars.DOCKER_USERNAME }}
