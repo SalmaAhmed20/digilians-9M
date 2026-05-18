@@ -1,0 +1,13 @@
+name: ascii drawing part2
+on: workflow_dispatch
+jobs:
+    dummy-job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout the repo
+              uses: actions/checkout@v6
+            - name: welcome message and ls and cat
+              run: | 
+               echo Hello world
+               ls 
+               cat README.md
