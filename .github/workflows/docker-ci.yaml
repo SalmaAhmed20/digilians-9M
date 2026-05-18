@@ -1,0 +1,25 @@
+name: Docker CI
+on: workflow_dispatch
+jobs:
+    Build-docker:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout the repo
+              uses: actions/checkout@v6
+            - name: DOCKER login
+              run: echo docker login --username=salma22 --password=securepasswd
+            - name: Docker build custom image
+              run: echo docker build -t salma22/my-custom-image
+            - name: Docker Publish
+              run : echo docker push salma22/my-custom-image
+            
+    Deploy-docker:
+        needs: Build-docker
+        runs-on: ubuntu-latest
+        steps:
+            - name: DOCKER login
+              run: echo docker login --username=salma22 --password=securepasswd
+            - name: Docker run
+              run: echo docker run -p 8080:80 salma22/my-custom-image
+           
+
