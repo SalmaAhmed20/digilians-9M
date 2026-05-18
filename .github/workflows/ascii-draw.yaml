@@ -12,4 +12,6 @@ jobs:
                ls 
                cat README.md
             - name: Run test script
-              run: ./testing-script.sh
+              run: |
+                chmod +x  testing-script.sh
+                ./testing-script.sh
