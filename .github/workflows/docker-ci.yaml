@@ -1,5 +1,7 @@
 name: Docker CI
 on: workflow_dispatch
+env:
+    DOCKER_USERNAME: salma22
 jobs:
     Build-docker:
         runs-on: ubuntu-latest
@@ -7,19 +9,18 @@ jobs:
             - name: Checkout the repo
               uses: actions/checkout@v6
             - name: DOCKER login
-              run: echo docker login --username=salma22 --password=securepasswd
+              run: echo docker login --username=${{ env.DOCKER_USERNAME }} --password=securepasswd
             - name: Docker build custom image
-              run: echo docker build -t salma22/my-custom-image
+              run: echo docker build -t ${{ env.DOCKER_USERNAME }}/my-custom-image
             - name: Docker Publish
-              run : echo docker push salma22/my-custom-image
+              run : echo docker push ${{ env.DOCKER_USERNAME }}/my-custom-image
             
     Deploy-docker:
         needs: Build-docker
         runs-on: ubuntu-latest
         steps:
             - name: DOCKER login
-              run: echo docker login --username=salma22 --password=securepasswd
+              run: echo docker login --username=${{ env.DOCKER_USERNAME }} --password=securepasswd
             - name: Docker run
-              run: echo docker run -p 8080:80 salma22/my-custom-image
-           
-
+              run: echo docker run -p 8080:80 ${{ env.DOCKER_USERNAME }}/my-custom-image
+           #DRY don't repeat your self 
