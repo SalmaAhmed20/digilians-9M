@@ -2,7 +2,7 @@ name: first-ci
 on: push
 jobs:
     unit-test:
-        runs-on: windows-latest
+        runs-on: macos-26
         steps:
             - name: Checkout the repo
               uses: actions/checkout@v6
